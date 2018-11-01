@@ -141,6 +141,6 @@ if __name__ == "__main__":
     # p = calibration()
     # print(p)
     # print("initial: {}, end: {}" .format(p(923.01), p(561.75)))
-    thickness1 = thickness(1)
+    thickness1 = thickness(0)
     print("Thickness = {:E}" .format(thickness1))
     # guassian_fit("../data/241Am_80V_103s_1024.txt", gaussian)
