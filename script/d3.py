@@ -7,7 +7,7 @@ __author__ = 'Tian'
 
 
 def hex2binary(fname, output):
-    # convert hex data into 8-bits binary file in UTF8 encoding
+    # convert hex data into 4-bits binary file in UTF8 encoding
     lines = []
     with open(fname, "rb") as f:
         lines = f.readlines()
