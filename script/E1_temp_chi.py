@@ -8,6 +8,7 @@ __author__ = 'Tian'
 fname = "../data/E1_chi_0G.xls"
 col_name = ['R', 'temp', 'B', 'X', 'Y', 'theta', 'freq', 'noise']
 data = pd.read_csv(fname, delimiter='\t', names=col_name, skiprows=[0, 1])
+data = data.loc[:50000,:]
 
 # Background phase difference
 bg_phase = -155.48 * np.pi / 180 # Unit: radian
@@ -39,4 +40,4 @@ axs[1].set_xlabel("Temperature/K")
 
 fig.subplots_adjust(hspace=0)
 plt.savefig(r"../figure/E1_chi_temp.png", dpi=450, transparent=True)
-plt.show()
+# plt.show()

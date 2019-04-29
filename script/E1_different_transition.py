@@ -8,6 +8,7 @@ __author__ = 'Tian'
 fname = "../data/E1_chi_different_G.xls"
 col_name = ['R', 'temp', 'B', 'X', 'Y', 'theta', 'freq', 'noise']
 data = pd.read_csv(fname, delimiter='\t', names=col_name, skiprows=[0, 1])
+data = data.loc[:56000,:]
 magnetic = np.array([1., 2., 3., 3.5])
 
 # Background phase difference
@@ -40,6 +41,7 @@ for field in magnetic:
                 'o', markersize=3, alpha=.3, label=f'B={field:.1f}kG')
 # fname = "../data/E1_chi_0G.xls"
 # data0 = pd.read_csv(fname, delimiter='\t', names=col_name, skiprows=[0, 1])
+# data0 = data0.loc[:50000,:]
 #
 # # Caused by non-ideal and non-symmetry coils
 # non_ideal_coils = np.copy(np.mean(data0[["X", "Y"]][data0.temp == max(data0.temp)]))
@@ -60,10 +62,10 @@ axs[1].ticklabel_format(axis='y', style='sci', scilimits=(-7, -6))
 axs[1].set_ylabel(r"$K\cdot Re(\chi)$")
 axs[1].set_xlabel("Temperature/K")
 
-axs[1].set_xlim(85, 92)
+axs[1].set_xlim(85, 93)
 axs[0].legend(lines, [i.get_label() for i in lines], ncol=4,\
            markerscale=5, loc="upper right", bbox_to_anchor=(0.89,1.14), shadow=True)
 
 fig.subplots_adjust(hspace=0)
-# plt.savefig(r"../figure/E1_chi_different_G.png", dpi=450, transparent=True)
+plt.savefig(r"../figure/E1_chi_different_G_refined.png", dpi=450, transparent=True)
 # plt.show()
